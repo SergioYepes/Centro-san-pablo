@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+    /* British Academic Color Palette */
+    --background: 45 15% 97%;
+    --foreground: 222 84% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    /* Navy Blue - Primary British Color */
+    --primary: 222 84% 15%;
+    --primary-foreground: 45 15% 97%;
+
+    /* Burgundy - Secondary British Color */
+    --secondary: 0 45% 25%;
+    --secondary-foreground: 45 15% 97%;
+
+    /* Cream/Ivory Muted */
+    --muted: 45 15% 94%;
+    --muted-foreground: 222 20% 45%;
+
+    /* Gold Accent - Cambiado a British Racing Green */
+    --accent: 120 45% 25%;
+    --accent-foreground: 45 15% 97%;
+
+    /* British Red for destructive */
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 45 15% 97%;
+
+    --border: 222 15% 85%;
+    --input: 222 15% 85%;
+    --ring: 222 84% 15%;
+
+    /* Custom British Academic Colors */
+    --navy: 222 84% 15%;
+    --burgundy: 0 45% 25%;
+    --british-blue: 222 84% 15%;
+    --cream: 45 15% 97%;
+    --parchment: 45 25% 92%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy)), hsl(var(--burgundy)));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--british-blue)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--parchment)));
+    --gradient-british: linear-gradient(135deg, hsl(222 84% 15%), hsl(0 0% 100%), hsl(0 70% 45%));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--navy) / 0.2);
+    --shadow-british: 0 5px 20px -5px hsl(var(--british-blue) / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+.dark {
+    /* Dark British Academic Theme */
+    --background: 222 84% 8%;
+    --foreground: 45 15% 95%;
+
+    --card: 222 50% 10%;
+    --card-foreground: 45 15% 95%;
+
+    --popover: 222 50% 10%;
+    --popover-foreground: 45 15% 95%;
+
+    --primary: 45 85% 65%;
+    --primary-foreground: 222 84% 8%;
+
+    --secondary: 0 45% 35%;
+    --secondary-foreground: 45 15% 95%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 222 10% 65%;
+
+    --accent: 120 45% 35%;
+    --accent-foreground: 45 15% 95%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 15% 95%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 120 45% 65%;
+
+    /* Dark theme custom colors */
+    --navy: 222 70% 20%;
+    --burgundy: 0 45% 35%;
+    --british-blue: 222 70% 20%;
+    --cream: 222 30% 15%;
+    --parchment: 222 25% 18%;
+    
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy)), hsl(var(--burgundy)));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--british-blue)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--parchment)));
+    --gradient-british: linear-gradient(135deg, hsl(222 70% 20%), hsl(0 0% 100%), hsl(0 70% 55%));
+
+    /* Dark shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.4);
+    --shadow-british: 0 5px 20px -5px hsl(var(--british-blue) / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
