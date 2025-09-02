@@ -3,7 +3,7 @@ import { Menu, X, GraduationCap, LogIn } from "lucide-react";
 import { Button } from "../ui/button";
 import { Navigation } from "./Navigation";
 import { LoginModal } from "../auth/LoginModal";
-import sanPabloLogo from "../../assets/san-pablo-logo.png";
+import sanPabloLogo from "../../assets/San-pablo-logo.png";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
