@@ -19,7 +19,7 @@ All colors MUST be HSL.
     --popover-foreground: 222 84% 5%;
 
     /* Navy Blue - Primary British Color */
-    --primary: 222 84% 15%;
+    --primary: 221, 74%, 41%;
     --primary-foreground: 45 15% 97%;
 
     /* Burgundy - Secondary British Color */
@@ -43,9 +43,9 @@ All colors MUST be HSL.
     --ring: 222 84% 15%;
 
     /* Custom British Academic Colors */
-    --navy: 222 84% 15%;
+    --navy:221 75% 46%;
     --burgundy: 0 45% 25%;
-    --british-blue: 222 84% 15%;
+    --british-blue: 221 75% 46%;
     --cream: 45 15% 97%;
     --parchment: 45 25% 92%;
     
