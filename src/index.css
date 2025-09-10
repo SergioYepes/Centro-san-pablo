@@ -31,7 +31,7 @@ All colors MUST be HSL.
     --muted-foreground: 222 20% 45%;
 
     /* Gold Accent - Cambiado a British Racing Green */
-    --accent: 120 45% 25%;
+    --accent: 226, 80%, 53%;
     --accent-foreground: 45 15% 97%;
 
     /* British Red for destructive */
@@ -45,7 +45,7 @@ All colors MUST be HSL.
     /* Custom British Academic Colors */
     --navy:221 75% 46%;
     --burgundy: 0 45% 25%;
-    --british-blue: 221 75% 46%;
+    --british-blue: 222 84% 15%;
     --cream: 45 15% 97%;
     --parchment: 45 25% 92%;
     
@@ -111,7 +111,7 @@ All colors MUST be HSL.
     /* Dark theme custom colors */
     --navy: 222 70% 20%;
     --burgundy: 0 45% 35%;
-    --british-blue: 222 70% 20%;
+    --british-blue: 222 84% 15%;
     --cream: 222 30% 15%;
     --parchment: 222 25% 18%;
     

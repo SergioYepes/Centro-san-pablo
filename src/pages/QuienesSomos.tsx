@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Users, Award, Globe } from "lucide-react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const QuienesSomos = () => {
   const valores = [
@@ -72,6 +73,26 @@ const QuienesSomos = () => {
           </div>
         </section>
 
+        {/* Galería del Lugar */}
+        <section className="py-16 bg-cream/60">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-3xl font-bold text-navy mb-8 text-center">
+              Nuestro Espacio
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="rounded-xl overflow-hidden shadow-elegant">
+                <img src={heroBackground} alt="Aula y recursos" className="w-full h-56 object-cover" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-elegant">
+                <img src={heroBackground} alt="Área común" className="w-full h-56 object-cover" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-elegant">
+                <img src={heroBackground} alt="Sala de estudio" className="w-full h-56 object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Valores */}
         <section className="py-16 bg-parchment">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,18 +154,6 @@ const QuienesSomos = () => {
           </div>
         </section>
       </main>
-
-      <footer className="bg-gradient-british text-cream py-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h3 className="font-serif text-2xl font-bold mb-4">Centro Educativo San Pablo</h3>
-            <p className="text-cream/90 mb-6">Excellence in Language Education</p>
-            <p className="text-cream/80 text-sm">
-              © 2024 Centro Educativo San Pablo. Todos los derechos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

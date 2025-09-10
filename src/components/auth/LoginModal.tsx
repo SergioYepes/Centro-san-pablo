@@ -6,6 +6,8 @@ import { Label } from "../ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { GraduationCap, Mail, Lock, User } from "lucide-react";
+import { auth } from "@/lib/firebase";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -18,21 +20,46 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate login process
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const form = e.target as HTMLFormElement;
+      const email = (form.querySelector('#email') as HTMLInputElement).value;
+      const password = (form.querySelector('#password') as HTMLInputElement).value;
+      await signInWithEmailAndPassword(auth, email, password);
       onClose();
-    }, 1500);
+    } catch (err) {
+      // noop: agregar toast si se desea
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate registration process
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const form = e.target as HTMLFormElement;
+      const name = (form.querySelector('#name') as HTMLInputElement).value;
+      const email = (form.querySelector('#reg-email') as HTMLInputElement).value;
+      const password = (form.querySelector('#reg-password') as HTMLInputElement).value;
+      
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // Guardar el nombre en Firestore
+      const { doc, setDoc } = await import("firebase/firestore");
+      const { db } = await import("@/lib/firebase");
+      
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        name: name,
+        email: email,
+        role: "alumno" // Se cambiará automáticamente a admin si es el primer usuario
+      }, { merge: true });
+      
       onClose();
-    }, 1500);
+    } catch (err) {
+      console.error("Error al registrar:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

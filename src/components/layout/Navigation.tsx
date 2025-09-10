@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { 
   Users, 
   BookOpen, 
@@ -8,12 +8,16 @@ import {
   GraduationCap, 
   Edit3 
 } from "lucide-react";
+import { useAuth } from "@/contexts/auth";
 
 interface NavigationProps {
   closeMenu: () => void;
 }
 
 export const Navigation = ({ closeMenu }: NavigationProps) => {
+  const { user, logout } = useAuth();
+  const location = useLocation();
+  const isPortuguese = location.pathname.startsWith("/servicios/portugues");
   const navItems = [
     { to: "/quienes-somos", label: "Quiénes Somos", icon: Users },
     { 
@@ -31,6 +35,18 @@ export const Navigation = ({ closeMenu }: NavigationProps) => {
     { to: "/metodos-estudio", label: "Métodos de Estudio", icon: GraduationCap },
     { to: "/blog", label: "Blog Profesores", icon: Edit3 },
   ];
+  const navItemsLogout = [
+    { to: "/quienes-somos", label: "Quiénes Somos", icon: Users },
+    { 
+      to: "/servicios", 
+      label: "Servicios", 
+      icon: BookOpen,
+      children: [
+        { to: "/servicios/ingles", label: "Clases de Inglés" },
+        { to: "/servicios/portugues", label: "Clases de Portugués" }
+      ]
+    },
+  ];
 
   const NavItem = ({ item }: { item: typeof navItems[0] }) => {
     const Icon = item.icon;
@@ -43,7 +59,7 @@ export const Navigation = ({ closeMenu }: NavigationProps) => {
           className={({ isActive }) =>
             `flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
               isActive
-                ? "bg-cream text-navy"
+                ? "bg-ring text-cream"
                 : "text-cream hover:bg-cream/10 hover:text-cream"
             }`
           }
@@ -62,8 +78,8 @@ export const Navigation = ({ closeMenu }: NavigationProps) => {
                 className={({ isActive }) =>
                   `block px-3 py-1 rounded text-xs font-medium transition-colors duration-200 ${
                     isActive
-                      ? "bg-burgundy text-cream"
-                      : "text-cream/70 hover:bg-burgundy/10 hover:text-burgundy"
+                      ? "bg-ring text-cream"
+                      : "text-cream/70 hover:bg-cream/10 hover:text-cream"
                   }`
                 }
               >
@@ -77,8 +93,11 @@ export const Navigation = ({ closeMenu }: NavigationProps) => {
   };
 
   return (
-    <div className="space-y-1">
-      {navItems.map((item, index) => (
+    <div className={`space-y-1 ${isPortuguese ? 'bg-emerald-700' : ''}`}>
+      {!user ? navItemsLogout.map((item, index) => (
+        <NavItem key={index} item={item} />
+      ))
+      : navItems.map((item, index) => (
         <NavItem key={index} item={item} />
       ))}
     </div>

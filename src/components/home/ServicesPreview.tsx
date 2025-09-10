@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Play
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const ServicesPreview = () => {
   const services = [
@@ -16,28 +17,32 @@ export const ServicesPreview = () => {
       description: "Inglés y portugués con metodología británica adaptada al mundo digital",
       icon: BookOpen,
       color: "navy",
-      features: ["Profesores nativos", "Horarios flexibles", "Material interactivo"]
+      features: ["Profesores nativos", "Horarios flexibles", "Material interactivo"],
+      link: "/servicios"
     },
     {
       title: "Club de Conversación",
       description: "Practica con estudiantes de todo el mundo en sesiones grupales dinámicas",
       icon: MessageCircle,
       color: "burgundy",
-      features: ["Sesiones en vivo", "Temas variados", "Niveles adaptados"]
+      features: ["Sesiones en vivo", "Temas variados", "Niveles adaptados"],
+      link: "/club-conversacion"
     },
     {
       title: "Recursos Exclusivos",
       description: "Videos, PDFs y material premium actualizado mensualmente",
       icon: FolderOpen,
       color: "british-blue",
-      features: ["Contenido original", "Descargas ilimitadas", "Actualizaciones mensuales"]
+      features: ["Contenido original", "Descargas ilimitadas", "Actualizaciones mensuales"],
+      link: "/recursos"
     },
     {
       title: "Comunidad Activa",
       description: "Únete a una red global de estudiantes y profesores expertos",
       icon: Users,
-      color: "navy",
-      features: ["Networking global", "Mentorías", "Eventos exclusivos"]
+      color: "emerald",
+      features: ["Networking global", "Mentorías", "Eventos exclusivos"],
+      link: "/comunidad-activa"
     }
   ];
 
@@ -48,6 +53,8 @@ export const ServicesPreview = () => {
         return `${baseClasses} bg-gradient-to-br from-burgundy to-burgundy/80`;
       case "british-blue":
         return `${baseClasses} bg-gradient-to-br from-british-blue to-british-blue/80`;
+      case "emerald":
+        return `${baseClasses} bg-gradient-to-br from-emerald-700 to-emerald-700/80`;
       default:
         return `${baseClasses} bg-gradient-to-br from-navy to-navy/80`;
     }
@@ -92,14 +99,20 @@ export const ServicesPreview = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full bg-cream/10 border-cream/30 text-cream hover:bg-cream hover:text-navy group-hover:scale-105 transition-transform"
-                  >
-                    Saber Más
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </Button>
+                  {
+                    service.link && (
+                      <Link to={service.link}>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="w-full bg-cream/10 border-cream/30 text-cream hover:bg-cream hover:text-navy group-hover:scale-105 transition-transform"
+                        >
+                          Saber Más
+                          <ArrowRight className="h-4 w-4 ml-2" />
+                        </Button>
+                      </Link>
+                    )
+                  }
                 </CardContent>
               </Card>
             );
@@ -120,7 +133,7 @@ export const ServicesPreview = () => {
                 <Play className="h-5 w-5 text-navy/70 mr-2" />
                 Ver Demo Gratuita
               </Button>
-              <Button size="lg">
+              <Button size="lg" className="hover:text-navy/90 border hover:border-navy/90">
                 Hablar con un Asesor
               </Button>
             </div>

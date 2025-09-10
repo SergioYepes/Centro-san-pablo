@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { GraduationCap, BookOpen, Users } from "lucide-react";
 import heroBackground from "../../assets/hero-background.jpg";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -41,14 +42,18 @@ export const HeroSection = () => {
 
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button className="w-full sm:w-auto">
-              <BookOpen className="h-5 w-5" />
-              Explorar Servicios
-            </Button>
-            <Button variant="outline" className="w-full sm:w-auto bg-cream/10 border-cream/30 text-cream hover:bg-cream hover:text-navy">
-              <Users className="h-5 w-5" />
-              Club de Conversación
-            </Button>
+            <Link to="/servicios">
+              <Button className="w-full sm:w-auto  hover:bg-secondary">
+                <BookOpen className="h-5 w-5" />
+                Explorar Servicios
+              </Button>
+            </Link>
+            <Link to="/club-conversacion">
+              <Button variant="outline" className="w-full sm:w-auto bg-cream/10 border-cream/30 text-cream hover:bg-cream hover:text-navy">
+                <Users className="h-5 w-5" />
+                Club de Conversación
+              </Button>
+            </Link>
           </div>
 
           {/* Features Grid */}
